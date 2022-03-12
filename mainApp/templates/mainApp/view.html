@@ -1,0 +1,15 @@
+{% extends "mainApp\base.html" %}
+
+{% block title %}
+Views
+{% endblock%}
+
+{% block content %}
+	{% if not user.todolist.all %}
+		<p>Nothing To Do Yet? Create <a href="/create">One</a></p>
+	{% endif %}
+	
+	{% for todo in user.todolist.all %}
+		<p><a href="/{{todo.id}}">{{todo.name}}</a></p>
+	{% endfor %}
+{% endblock %}
